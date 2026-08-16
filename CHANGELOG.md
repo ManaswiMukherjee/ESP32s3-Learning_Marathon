@@ -35,4 +35,12 @@ Continuous mode - The adc continuously takes measurements, the user can read whe
 One function or a piece of code can be used my multiple threads at a time without race conditions or corrupted data.
 
 ## 4. Why add calibration drivers seperately?
-During manufacturing the calibration error is etched into chip seperately, this calibration driver allows one to calibrate data to voltage without any errors as compared to converting the data by oneself.
+During manufacturing the calibration error is etched into chip seperately, this calibration driver allows one to calibrate data to voltage without any errors as compared to converting the data by oneself. Reference voltage for each chip is different due to manufacturing process.
+
+## 5. What are they deletion functions in the user guide just after adc handle creations?
+They are teardown/cleanup functions that are used when the handle is no longer used.
+
+## 6. ADC handle and Calibration handle are 2 different things
+
+## 7. Why is it necessary to use NULL for the callibration handle?
+If by chance cali_handle fails to initialize for some reason then there will be a pointer runtime error. So play safe will NULL.
