@@ -2,10 +2,13 @@
 
 ## 15/08/26 - 19/08/26
 
-### Day 1
+# Day 1
 
-Blinky and Button
+### Blinky and Button
+![setup](./docs/Day%201%20setup.jpeg)
 
-### Day 2
 
-ADC
+# Day 2
+
+### ADC
+![setup](./docs/Day%202%20setup.jpeg)
