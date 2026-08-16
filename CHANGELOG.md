@@ -33,3 +33,6 @@ Continuous mode - The adc continuously takes measurements, the user can read whe
 
 ## 3. What is thread safe?
 One function or a piece of code can be used my multiple threads at a time without race conditions or corrupted data.
+
+## 4. Why add calibration drivers seperately?
+During manufacturing the calibration error is etched into chip seperately, this calibration driver allows one to calibrate data to voltage without any errors as compared to converting the data by oneself.
