@@ -21,3 +21,15 @@ idf.py -p PORT flash monitor
 
 ## 5. What is gpio_reset_pin()?
 Removes any prior configurations that may have been used in the boot process. Just a safety measure.
+
+# DAY-2 16/08/2026
+
+## 1. What is the difference between oneshot and continuous mode in esp32 adc?
+Oneshot mode - The adc takes one measurement and then stops. Next measurement must be manually triggered.
+
+Continuous mode - The adc continuously takes measurements, the user can read whenever they want.
+
+## 2. Simplified example code
+
+## 3. What is thread safe?
+One function or a piece of code can be used my multiple threads at a time without race conditions or corrupted data.
