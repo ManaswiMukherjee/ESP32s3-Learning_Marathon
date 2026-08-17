@@ -44,3 +44,12 @@ They are teardown/cleanup functions that are used when the handle is no longer u
 
 ## 7. Why is it necessary to use NULL for the callibration handle?
 If by chance cali_handle fails to initialize for some reason then there will be a pointer runtime error. So play safe will NULL.
+
+# DAY-1 15/08/2026
+
+
+## 1. There is a definition given at the top of the code. when i hover my cursor over the config i2c master scl, then it shows 4, where is the 4 written? is it in a header file? where is it?
+It is the idf's kconfig system, editable by running `idf.py menuconfig`
+
+## 2. NACK is not being answered
+Checking wiring - Wiring was loose

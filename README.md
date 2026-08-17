@@ -12,3 +12,8 @@
 
 ### ADC
 ![setup](./docs/Day%202%20setup.jpeg)
+
+# Day 3
+
+### I2C using MPU6050
+![setup](./docs/Day%203%20setup.jpeg)
