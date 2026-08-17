@@ -81,24 +81,28 @@ void app_main(void)
     ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_WHO_AM_I_REG_ADDR, data, 1));
     ESP_LOGI(TAG, "WHO_AM_I = %X", data[0]);
 
-    uint16_t accel_x, accel_y, accel_z;
+    int16_t raw_x, raw_y, raw_z;
+    float accel_x = 0.0, accel_y = 0.0, accel_z = 0.0;
 
     while (1)
     {
         ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_XOUT_H, &data[1], 1));
         ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_XOUT_L, &data[0], 1));
-        accel_x = (data[1] << 8) | data[0];
-        ESP_LOGI(TAG, "X acceleration is %d", accel_x);
+        raw_x = (int16_t)(data[1] << 8) | data[0];
+        accel_x = raw_x / 16384.0;
+        ESP_LOGI(TAG, "X acceleration is %.2fg", accel_x);
 
         ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_YOUT_H, &data[1], 1));
         ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_YOUT_L, &data[0], 1));
-        accel_y = (data[1] << 8) | data[0];
-        ESP_LOGI(TAG, "Y acceleration is %d", accel_y);
+        raw_y = (int16_t)(data[1] << 8) | data[0];
+        accel_y = raw_y / 16384.0;
+        ESP_LOGI(TAG, "Y acceleration is %.2fg", accel_y);
 
         ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_ZOUT_H, &data[1], 1));
         ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_ZOUT_L, &data[0], 1));
-        accel_z = (data[1] << 8) | data[0];
-        ESP_LOGI(TAG, "Z acceleration is %d", accel_z);
+        raw_z = (int16_t)(data[1] << 8) | data[0];
+        accel_z = raw_z / 16384.0;
+        ESP_LOGI(TAG, "Z acceleration is %.2fg", accel_z);
 
         vTaskDelay(100 / portTICK_PERIOD_MS);
     }

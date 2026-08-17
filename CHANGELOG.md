@@ -53,3 +53,9 @@ It is the idf's kconfig system, editable by running `idf.py menuconfig`
 
 ## 2. NACK is not being answered
 Checking wiring - Wiring was loose
+
+## 3. Every acceleration value is showing as 112g.
+Copy paste bug
+
+### Data is 16 bit's compliment so use int.
+### Created a seperate variables for raw values and acceleration data
