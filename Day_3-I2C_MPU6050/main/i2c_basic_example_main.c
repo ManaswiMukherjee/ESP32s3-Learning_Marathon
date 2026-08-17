@@ -22,6 +22,13 @@ static const char *TAG = "example";
 #define MPU6050_PWR_MGMT_1_REG_ADDR 0x6B        /*!< Register addresses of the power management register */
 #define MPU6050_RESET_BIT           7
 
+#define MPU6050_ACCEL_XOUT_H        0x3B        /*!< Register addresses of accelerometer measurements */
+#define MPU6050_ACCEL_XOUT_L        0x3C
+#define MPU6050_ACCEL_YOUT_H        0x3D
+#define MPU6050_ACCEL_YOUT_L        0x3E
+#define MPU6050_ACCEL_ZOUT_H        0x3F
+#define MPU6050_ACCEL_ZOUT_L        0x40
+
 /**
  * @brief Read a sequence of bytes from a MPU6050 sensor registers
  */
@@ -74,6 +81,28 @@ void app_main(void)
     ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_WHO_AM_I_REG_ADDR, data, 1));
     ESP_LOGI(TAG, "WHO_AM_I = %X", data[0]);
 
+    uint16_t accel_x, accel_y, accel_z;
+
+    while (1)
+    {
+        ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_XOUT_H, &data[1], 1));
+        ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_XOUT_L, &data[0], 1));
+        accel_x = (data[1] << 8) | data[0];
+        ESP_LOGI(TAG, "X acceleration is %d", accel_x);
+
+        ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_YOUT_H, &data[1], 1));
+        ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_YOUT_L, &data[0], 1));
+        accel_y = (data[1] << 8) | data[0];
+        ESP_LOGI(TAG, "Y acceleration is %d", accel_y);
+
+        ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_ZOUT_H, &data[1], 1));
+        ESP_ERROR_CHECK(mpu6050_register_read(dev_handle, MPU6050_ACCEL_ZOUT_L, &data[0], 1));
+        accel_z = (data[1] << 8) | data[0];
+        ESP_LOGI(TAG, "Z acceleration is %d", accel_z);
+
+        vTaskDelay(100 / portTICK_PERIOD_MS);
+    }
+    
     /* Demonstrate writing by resetting the MPU6050 */
     ESP_ERROR_CHECK(mpu6050_register_write_byte(dev_handle, MPU6050_PWR_MGMT_1_REG_ADDR, 1 << MPU6050_RESET_BIT));
 

@@ -1,6 +1,9 @@
 # Esp32-S3 learning marathon
 
 ## 15/08/26 - 19/08/26
+* This repo is made to store my progress of learning the esp32s3 in the above mentioned time.
+* Daily project naming convention is `Day_n-Project_Name`
+* Commit message convention is `DD/MM/YY_HH:MM - REMARKS`
 
 # Day 1
 

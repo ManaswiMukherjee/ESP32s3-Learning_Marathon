@@ -27,7 +27,7 @@ void app_main(void)
         {
             gpio_set_level(LED, 0);
         }
-        vTaskDelay(1/ portTICK_PERIOD_MS);
+        vTaskDelay(1 / portTICK_PERIOD_MS);
     }
     
 }
