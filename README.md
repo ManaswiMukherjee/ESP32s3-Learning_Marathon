@@ -4,7 +4,9 @@
 * This repo is made to store my progress of learning the esp32s3 in the above mentioned time.
 * Daily project naming convention is `Day_n-Project_Name`
 * Commit message convention is `DD/MM/YY_HH:MM - REMARKS`
-
+* CHANGELOG.md contains mistakes, their solutions and learning.
+* SETUP.md is an AI generated guide to replicate this repo and projects(IDK if it works or not :| )
+* i2c_scanner_pico is a arduino ide based tool for the pico to detect i2c devices and print out their address
 # Day 1
 
 ### Blinky and Button
