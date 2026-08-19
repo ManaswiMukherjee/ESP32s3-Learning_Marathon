@@ -1,0 +1,34 @@
+dependencies:
+  espressif/esp-nn:
+    component_hash: 75806376ea082118ba695e0350e084d449ab25d88d26b4550747c35183e164ce
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.2'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.2.7
+  espressif/esp-tflite-micro:
+    component_hash: 1ce00c44af2362d48b5c0eefc5fcc60fa54d84db332c80005ae324556f4df0db
+    dependencies:
+    - name: espressif/esp-nn
+      registry_url: https://components.espressif.com
+      require: private
+      version: '>=1.1.1'
+    - name: idf
+      require: private
+      version: '>=5.1'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.4.0
+  idf:
+    source:
+      type: idf
+    version: 6.0.2
+direct_dependencies:
+- espressif/esp-tflite-micro
+manifest_hash: cde8dae00d38eef8cec787ab91f748b0cd5f0ccb4615189e6b7265ecee0d3022
+target: esp32s3
+version: 3.0.0

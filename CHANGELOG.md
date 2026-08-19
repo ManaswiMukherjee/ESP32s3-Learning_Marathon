@@ -72,3 +72,25 @@ NVS stands for non volatile storage. It stores wifi data and other metadata to c
 * ESP_ERR_NVS_NEW_VERSION_FOUND - The nvs data format changed
 
 Both lead to the nvs being unusable so the fix is erase the data and reinit the nvs with new data
+
+# DAY-5 19/08/2026
+## This example is a model trained to predict the value of `sin` at a particular point
+
+## 1. Environment was not getting activated
+Activated the environment through bottom left option of `ESP-IDF vx.x`
+
+## 2. Red squiggles appeared again
+* Shifted to clangd
+* Ran `idf.py reconfigure` to generate build directory
+* Changed the line from `  "C_Cpp.intelliSenseEngine": "default",` to `  "C_Cpp.intelliSenseEngine": "disabled",`
+
+## 3. Why are all the files with an extension `.cc` instead of `.c`
+The tflite-micro is written in cpp and one of the was to store cpp files is through `.cc` extension.
+
+## 4. Work of all the files in `main` folder
+* main.cc - The actual entry point to `app_main()`, it is intentionaly tiny, with just a `setup()` and `loop()` function so as the arduino ide code looks similar to this.
+* model.h/model.cc - Contains the weights of the pretrained model. Mostly data.
+* main_functions.h/main_functions.cc - Contains the actual logic split into two parts\
+`setup()` - Loads the model from the byte array in model.cc, allocated continuous memory for execution of the model and handles input/output pointers.\
+`loop()` - Just increments x and takes outputs of y for each x continuously
+* output_handler.cc/output_handler.h - Controls how the output of the model is displayed through LED or some other means
