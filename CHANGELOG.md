@@ -12,16 +12,16 @@ Hence naming convention for this project from now on is `Day_n-Project_Name`
  * Modified the `"compileCommands":` line to `"compileCommands": "${workspaceFolder}/build/compile_commands.json",` as my system uses Microsoft C/C++ IntelliSense
 
 ## 3. Template code is too complex switching to simpler code.
---- 
 
 # Esp32 ALWAYS runs on top of FreeRTOS
----
+
 ## 4. How to upload code?
 idf.py -p PORT flash monitor
 
 ## 5. What is gpio_reset_pin()?
 Removes any prior configurations that may have been used in the boot process. Just a safety measure.
-
+---
+---
 # DAY-2 16/08/2026
 
 ## 1. What is the difference between oneshot and continuous mode in esp32 adc?
@@ -44,9 +44,9 @@ They are teardown/cleanup functions that are used when the handle is no longer u
 
 ## 7. Why is it necessary to use NULL for the callibration handle?
 If by chance cali_handle fails to initialize for some reason then there will be a pointer runtime error. So play safe will NULL.
-
-# DAY-1 15/08/2026
-
+---
+---
+# DAY-3 17/08/2026
 
 ## 1. There is a definition given at the top of the code. when i hover my cursor over the config i2c master scl, then it shows 4, where is the 4 written? is it in a header file? where is it?
 It is the idf's kconfig system, editable by running `idf.py menuconfig`
@@ -58,4 +58,17 @@ Checking wiring - Wiring was loose
 Copy paste bug
 
 ### Data is 16 bit's compliment so use int.
-### Created a seperate variables for raw values and acceleration data
+### Created seperate variables for raw values and acceleration data
+
+---
+---
+# DAY-4 18/08/2026
+
+## 1. What is NVS?
+NVS stands for non volatile storage. It stores wifi data and other metadata to connect to wifi fast
+
+## 2. What is `ESP_ERR_NVS_NO_FREE_PAGES` and `ESP_ERR_NVS_NEW_VERSION_FOUND`?
+* ESP_ERR_NVS_NO_FREE_PAGES - The nvs partition is full
+* ESP_ERR_NVS_NEW_VERSION_FOUND - The nvs data format changed
+
+Both lead to the nvs being unusable so the fix is erase the data and reinit the nvs with new data

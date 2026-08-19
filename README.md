@@ -27,3 +27,11 @@ Setup Day 3
 
 ![output](./docs/outputs/Day%203%20output.png)
 Serial terminal output
+
+# Day 4
+
+### WiFi Station
+Setup for this day is just the standalone board 
+
+![output](./docs/outputs/Day%204%20output.png)
+Serial terminal output
