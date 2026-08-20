@@ -94,3 +94,5 @@ The tflite-micro is written in cpp and one of the was to store cpp files is thro
 `setup()` - Loads the model from the byte array in model.cc, allocated continuous memory for execution of the model and handles input/output pointers.\
 `loop()` - Just increments x and takes outputs of y for each x continuously
 * output_handler.cc/output_handler.h - Controls how the output of the model is displayed through LED or some other means
+
+### * Trying to make the LED breathe now

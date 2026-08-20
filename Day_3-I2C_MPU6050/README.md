@@ -15,7 +15,7 @@ If you have a new I2C application to go (for example, read the temperature data 
 
 ### Hardware Required
 
-To run this example, you should have an Espressif development board based on a chip listed in supported targets as well as a MPU9250. MPU9250 is a inertial measurement unit, which contains a accelerometer, gyroscope as well as a magnetometer, for more information about it, you can read the [datasheet of the MPU9250 sensor](https://invensense.tdk.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf).
+To run this example, you should have an Espressif development board based on a chip listed in supported targets as well as a MPU6050. The MPU6050 is a 6-axis motion tracking module combining a 3-axis accelerometer and a 3-axis gyroscope, plus an on-chip temperature sensor, for more information about it, you can read the [datasheet of the MPU9250 sensor](./../docs/MPU-6000.PDF).
 
 #### Pin Assignment
 
